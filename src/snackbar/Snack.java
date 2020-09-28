@@ -15,10 +15,10 @@ public class Snack
     private int id;
     private String name;
     private int quantity;
-    private int cost;
+    private double cost;
     private int vendingMachineID;
 
-    public Snack(String name, int quantity, int cost, int vendingMachineID)
+    public Snack(String name, int quantity, double cost, int vendingMachineID)
     {
         this.name = name;
         this.quantity = quantity;
@@ -40,4 +40,73 @@ public class Snack
         * get total cost given a quantity
     */
 
+    public int GetID()
+    {
+        return id;
+    }
+
+    public String GetName()
+    {
+        return name;
+    }
+
+    public void SetName(String name)
+    {
+        this.name = name;
+    }
+
+    public double GetCost()
+    {
+        return cost;
+    }
+
+    public void SetCost(double cost)
+    {
+        this.cost = cost;
+    }
+
+    public int GetVendingMachineID()
+    {
+        return vendingMachineID;
+    }
+
+    public void SetVendingMachineID(int vendingMachineID)
+    {
+        this.vendingMachineID = vendingMachineID;
+    }
+
+    public int GetQuantity()
+    {
+        return quantity;
+    }
+
+    public void AddQuantity(int quantity)
+    {
+        this.quantity += quantity;
+    }
+
+    public double CostFor(int quantity)
+    {
+        return quantity * cost;
+    }
+
+    public int BuySnack(int quantity)
+    {
+        if(this.quantity >= quantity)
+        {
+            this.quantity -= quantity;
+            return quantity;
+        }
+        else
+        {
+            int total = this.quantity;
+            this.quantity = 0;
+            return total;
+        }
+    }
+
+    public double TotalCost()
+    {
+        return quantity * cost;
+    }
 }
