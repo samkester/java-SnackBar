@@ -90,18 +90,18 @@ public class Snack
         return quantity * cost;
     }
 
-    public int BuySnack(int quantity)
+    public double BuySnack(int quantity)
     {
         if(this.quantity >= quantity)
         {
             this.quantity -= quantity;
-            return quantity;
+            return quantity * cost;
         }
         else
         {
             int total = this.quantity;
             this.quantity = 0;
-            return total;
+            return total * cost;
         }
     }
 
